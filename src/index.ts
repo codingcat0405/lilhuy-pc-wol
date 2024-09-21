@@ -8,6 +8,7 @@ const app = new Elysia()
     const mac = params.mac;
     const proc = Bun.spawn(['wakeonlan', mac]);
     const output = await new Response(proc.stdout).text();
+    console.log(output);
     return {
       status: 'success',
       message: 'WOL packet sent'
